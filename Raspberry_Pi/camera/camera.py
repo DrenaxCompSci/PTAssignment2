@@ -20,12 +20,18 @@ imgExtension = ".jpg"
 print("Waiting on movement data")
 # reads arduino data forever, capturing an image if H is detected
 while foundFlag:
-	movementData = ser.readline()
+	movementData = ser.read()
 	print(movementData)
 	
-	if ser.read() == 'H':
+	if movementData == 'H':
             print("In if statement")
             foundFlag = False
             imgFile = imgName + str(pictureCounter) + imgExtension
             camera.capture(imgFile) # update to variable jpg name
             pictureCounter = pictureCounter + 1
+            while movementData != 'L':
+                movementData = ser.read()
+                foundFlag = True
+            
+        
+
