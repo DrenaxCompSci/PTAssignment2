@@ -1,6 +1,3 @@
-//Example of how to utilise kinect features found at: 
-// https://github.com/shiffman/OpenKinect-for-Processing
-
 import org.openkinect.freenect.*;
 import org.openkinect.processing.*;
 
@@ -26,7 +23,11 @@ void keyPressed() {
       tilt++;
     } else if (keyCode == DOWN) {// If down key is pressed
       tilt--;
+    } else if (key == 'H'){
+      saveFrame();
     }
+    
+    saveFrame("nightVision.png");
     tilt = constrain(tilt, 0, 30); //Limit how far the kinect can be tilted
     kinect.setTilt(tilt); //Set the new tilt after a key press
   }
