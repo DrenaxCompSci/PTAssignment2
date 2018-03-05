@@ -12,8 +12,26 @@ camera.start_preview()
 time.sleep(5)
 camera.stop_preview()
 
+foundFlag = True
+pictureCounter = 0
+imgName = "intruder"
+imgExtension = ".jpg"
+
+print("Waiting on movement data")
 # reads arduino data forever, capturing an image if H is detected
-while True:
-	movementData = ser.readline()
+while foundFlag:
+	movementData = ser.read()
+	print(movementData)
+	
 	if movementData == 'H':
-		camera.capture('intruder.jpg') # update to variable jpg name
+            print("In if statement")
+            foundFlag = False
+            imgFile = imgName + str(pictureCounter) + imgExtension
+            camera.capture(imgFile) # update to variable jpg name
+            pictureCounter = pictureCounter + 1
+            while movementData != 'L':
+                movementData = ser.read()
+                foundFlag = True
+            
+        
+
