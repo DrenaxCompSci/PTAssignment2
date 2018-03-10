@@ -1,3 +1,5 @@
+#include <ArduinoJson.h>
+
 const int ledPin = 13; 
 int incomingByte; 
 int nextByte;
@@ -9,10 +11,11 @@ int RadiatorIn = 0;
 float TemperatureIn = 0.0;
 
 char charBuf[2];
-
+StaticJsonBuffer<400> jsonBuffer;
 void setup() {
   Serial.begin(9600);
   pinMode(ledPin, OUTPUT);
+  
 }
 
 struct packet{
@@ -49,36 +52,30 @@ void loop(){
         digitalWrite(ledPin, HIGH);
         String next = Serial.readString();
         next.toCharArray(charBuf, 2);
-        // Serial.println(incomingByte);
-        // Serial.println(next);
-        // Serial.println(next.length());
-        // Serial.println(next[0]);
-        // Serial.println(next[1]);
         if (next[1] == 'L'){
           digitalWrite(ledPin, LOW);
-          //Serial.println("Low"); 
+          Serial.println("L"); 
           PIRIn = 'L';
         }
         else if (next[1] == 'H'){
           digitalWrite(ledPin, HIGH);
-          //Serial.println("High");
+          Serial.println("H");
           PIRIn = 'H';
         }
       }
-      else if (incomingByte == 2)
-        LDRIn = (Serial.parseInt());
-      else if (incomingByte == 3)
-        MotorIn = 1;
-      else if (incomingByte == 4)
-        RadiatorIn = 1;
-      else if (incomingByte == 5)
-        TemperatureIn = 0.9;
-      
+      else if (incomingByte == 2){
+        int brightness = Serial.read();
+      }
+      else if (incomingByte == 3){
+        int rempera = Serial.read();
+      }
     }
   }
   if ((PIRIn != ' ') && (LDRIn != 0) && (MotorIn != 0) && (RadiatorIn != 0) && (TemperatureIn != 0.0)){
-    sendPacket();
+    // sendPacket();
+    JSON(LDRIn);
   }
+  
 }
 
 void sendPacket(){
@@ -90,4 +87,40 @@ void sendPacket(){
   MotorIn = 0;
   RadiatorIn = 0;
   TemperatureIn = 0.0;
+}
+
+void sendPIRStatus(){
+  packet thisPacket = { PIRIn, LDRIn, MotorIn, RadiatorIn, TemperatureIn};
+  Serial.write((const uint8_t *)&thisPacket, sizeof(thisPacket));
+  delay(5000);
+  PIRIn = ' ';
+  LDRIn = 0;
+  MotorIn = 0;
+  RadiatorIn = 0;
+  TemperatureIn = 0.0;
+}
+
+void JSON(int LDRIn){
+  char json[] =
+      "{\"LDRReading\":LDRIn,\"TemperatureReading\":TemperatureIn}";
+      
+      JsonObject& root = jsonBuffer.parseObject(json);
+
+  // Test if parsing succeeds.
+  if (!root.success()) {
+    Serial.println("parseObject() failed");
+    return;
+  }
+
+  // Fetch values.
+  //
+  // Most of the time, you can rely on the implicit casts.
+  // In other case, you can do root["time"].as<long>();
+  long temperature = root["TemperatureReading"];
+  long LDRRead = root["LDRReading"];
+
+  // Print values.
+  Serial.println(temperature);
+  Serial.println(LDRRead);
+  Serial.println("");
 }
