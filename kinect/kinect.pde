@@ -3,6 +3,7 @@ import org.openkinect.processing.*;
 
 Kinect kinect; //Kinect object
 float tilt; //Tilt variable to move kinect up and down 
+boolean nightVision = false;
 
 void setup() {
   size(600, 520); //Set kinect output image size
@@ -23,11 +24,14 @@ void keyPressed() {
       tilt++;
     } else if (keyCode == DOWN) {// If down key is pressed
       tilt--;
-    } else if (key == 'H'){
+    } else if (key == 'h'){
       saveFrame();
-    }
+    } else  if(key == 'i'){
+      nightVision = !nightVision;
+      kinect.enableIR(nightVision);
+    } 
     
-    saveFrame("nightVision.png");
+    saveFrame("security.png");
     tilt = constrain(tilt, 0, 30); //Limit how far the kinect can be tilted
     kinect.setTilt(tilt); //Set the new tilt after a key press
   }
