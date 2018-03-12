@@ -1,0 +1,21 @@
+import time
+import serial
+
+ser = serial.Serial('/dev/ttyACM0', 9600)
+
+
+foundFlag = True
+
+
+print("Waiting on movement data")
+# reads arduino data forever, starting motor if X is detected
+while foundFlag:
+	movementData = ser.read()
+	print(movementData)
+	
+	if movementData == 'X':
+            print("In if statement")
+            foundFlag = False
+            while movementData != 'Z':
+                movementData = ser.read()
+                foundFlag = True
