@@ -2,7 +2,7 @@ import picamera
 import time
 import serial
 
-ser = serial.Serial('/dev/ttyACM0', 9600)
+ser = serial.Serial('/dev/ttyUSB0', 9600)
 
 camera = picamera.PiCamera()
 camera.vflip = True
@@ -21,6 +21,7 @@ print("Waiting on movement data")
 # reads arduino data forever, capturing an image if H is detected
 while foundFlag:
 	movementData = ser.read()
+	print("Test")
 	print(movementData)
 	
 	if movementData == 'H':
