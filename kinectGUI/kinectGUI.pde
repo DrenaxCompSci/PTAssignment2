@@ -3,6 +3,7 @@ import controlP5.*; //library to create GUI
 import java.awt.Robot;
 import java.awt.AWTException;
 import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 
 Robot robot;
 Serial port; //Defining serial port to read and write to.
@@ -10,11 +11,7 @@ PFont font; //create font object
 ControlP5 cp5;  //create Controlp5 object
 
 String input;
-String inputList =""; //Initiate list with white space to stop null value being produced everytime the list is created. 
-String oldSerial = "old"; //Used to prevent the same 
-String newSerial = "Zumo GUI initiated. \n";
-
-//Defining all buttons used.
+//Defining all buttons used
 Button toggleNightVision;
 Button capture;
 Button up;
@@ -53,9 +50,14 @@ void setup()
      .setColorBackground(color(0,0))
     .setSize (250, 80)
     .setFont(font);
-try{
-  Robot robot = new Robot();
-}catch(AWTException a){}
+    
+//Creating robot
+  try { 
+    robot = new Robot();
+  } catch (AWTException e) {
+    e.printStackTrace();
+    exit();
+  }
 }
 
 void draw() 
@@ -65,10 +67,6 @@ void draw()
   //GUI title 
   fill(0, 0, 0); //text colour (R,G,B) 
   textFont(font);//set font of text
-  text("ZUMO Controller", 450, 60); //title and position
-  text("          By", 450, 90);
-  text("   Mark Austin", 450, 120);
-  
   
   if ( port.available() > 0) 
     {  
@@ -79,6 +77,33 @@ void draw()
 }
 
 void up(){
-  robot.keyPress(38);
-  robot.keyRelease(38);
+  robot.keyPress(KeyEvent.VK_UP);
+  robot.keyRelease(KeyEvent.VK_UP);
+   if (keyCode == UP){
+  System.out.println("up");
+   } 
+}
+
+void down(){
+  robot.keyPress(KeyEvent.VK_DOWN);
+  robot.keyRelease(KeyEvent.VK_DOWN);
+   if (keyCode == DOWN){
+  System.out.println("down");
+   } 
+}
+
+void capture(){
+  robot.keyPress(KeyEvent.VK_H);
+  robot.keyRelease(KeyEvent.VK_H);
+   if (keyCode == 'H'){
+  System.out.println("Capturing image...");
+   } 
+}
+
+void Toggle_Night_Vision(){
+  robot.keyPress(KeyEvent.VK_I);
+  robot.keyRelease(KeyEvent.VK_I);
+   if (keyCode == 'I'){
+  System.out.println("Changing camera...");
+   } 
 }
