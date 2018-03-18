@@ -3,19 +3,51 @@ import json
 import time
 from twilio.rest import Client
 
+# bool, checks if valid json
+def jsonCheck(someJson):
+    try:
+        jsonData = json.loads(someJson)
+    except ValueError, e:
+        return False
+    return True
+
+# usb setup
 ser = serial.Serial('/dev/ttyUSB0', 9600)
+# Twilio setup
 account_sid = "AC3ae40e42edc935551d4b2993f9dc44e4"
 auth_token = "287a9d36b8b1f460751aed4111640218"
-
 client = Client(account_sid, auth_token)
 
-json_string = '{"id": 5}'
-
-parsed_json = json.loads(json_string)
 while True:
-    ser.write(json.dumps(parsed_json))
-    print("sent")
-    time.sleep(5)
+    movementData = ser.readline() # reads in data from serial
+    if jsonCheck(movementData): # checks if input is valid json
+        if not isinstance(movementData, (int, long)):
+            jsonData = json.loads(movementData)
+            if jsonData['id'] == "6": # if data is from receiver
+                print("Data received!")
+                print(movementData)
+                # temperature threshholds
+                if jsonData['temperature'] > 25:
+                    parsed_json = json.loads('{"id": 5, "temperature": 0}')
+                    temperatureStatus = "0"
+                    #ser.write(json.dumps(parsed_json))
+                    print("Temp above 25 degrees")
+                else:
+                    parsed_json = json.loads('{"id": 5, "temperature": 1}')
+                    temperatureStatus = "1"
+                    #ser.write(json.dumps(parsed_json))
+                    print("Temp below 25 degrees")
+                if jsonData['ldr'] < 190:
+                    ldrStatus = "1"
+                    print("ldr above 190")
+                else:
+                    ldrStatus = "0"
+                    print("ldr below 190")
+                jsonString = json.loads('{"id": 5, "radiator": ' + temperatureStatus + ', "motor": ' + ldrStatus + '}')
+                ser.write(json.dumps(jsonString))
+                time.sleep(5)
+    else:
+        print("Invalid json")
 
 #while True:
     #movementData = ser.readline()
