@@ -1,1 +1,1 @@
-{"cpu":{"architecture":"avr","build":[{"flavour":"default","fqbn":"arduino:avr:uno"}],"default_flavour":"default","fqbn":"arduino:avr:uno","href":"/builder/v2/boards/arduino:avr:uno","name":"Arduino/Genuino Uno","com_name":"COM20","vid":"0x1A86","pid":"0x7523","flavour":"default","unknown":true},"secrets":[]}
+{"cpu":{"name":"Arduino/Genuino Uno","com_name":"COM8","fqbn":"arduino:avr:uno","flavour":"default"},"secrets":[]}
