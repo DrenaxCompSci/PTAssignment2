@@ -5,9 +5,11 @@ int tempValue;
 float logR2, R2, T, Tc, Tf; //used to calculate Celcius and Fahrenheit
 float c1 = 1.009249522e-03, c2 = 2.378405444e-04, c3 = 2.019202697e-07; //Used to calculate celcius
 const int buzzer = 9; //Define buzzer pin 
+const int LED = 13; 
 
 StaticJsonBuffer<512> jsonBuffer;
 JsonObject& obj = jsonBuffer.createObject();
+
 
 struct values{
   int ID;
@@ -17,9 +19,28 @@ struct values{
 void setup() {
 Serial.begin(9600);
 pinMode(buzzer, OUTPUT);
+pinMode(LED, OUTPUT);
+
 }
 
 void loop() {
+
+  if(Serial.available() > 0){
+    String JSON = Serial.readStringUntil('\n');
+    JsonObject& objRec = jsonBuffer.parseObject(JSON);
+    int value = objRec["id"];
+    Serial.println(JSON);
+  //  Serial.println(value);
+
+    if(value == 7){
+
+      int value2 = objRec["radiator"];
+      
+      if(value2 == 1){
+          digitalWrite(LED, HIGH); //LED lights up 
+        }    
+      }    
+    }
 
   tempValue = analogRead(ThermistorPin);
   R2 = 10000 * (1023.0 / (float)tempValue - 1.0);

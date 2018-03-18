@@ -20,6 +20,7 @@ int value;
 Kinect kinect; //Kinect object
 float tilt; //Tilt variable to move kinect up and down 
 boolean nightVision = false;
+boolean flag = false; 
 
 void settings() {
   size(600,500,P3D);
@@ -51,7 +52,23 @@ void draw() {
   background(0);
   image(kinect.getVideoImage(), 0, 0); //Set video image in centre of frame
   keyPressed();
+  long millis = System.currentTimeMillis();
+  long second = (millis / 1000) % 60;
+  long minute = (millis / (1000 * 60)) % 60;
+  long hour = (millis / (1000 * 60 * 60)) % 24;
+
+  String time = String.format("%02d:%02d:%02d:%d", hour, minute, second, millis);
   
+ // System.out.println(time);
+  
+  if(hour == 21){
+  value = 4;
+  value = 0;
+  }else if(hour == 14){
+   value = 4;
+   value = 0;
+   kinect.enableIR(false);
+  }
 }
 
 void keyPressed() {
