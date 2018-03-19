@@ -1,7 +1,7 @@
 import mqtt.*;
 
 MQTTClient client;
-String topic = "testTopic";
+String topic = "testTopic"; //Same as Pi Camera topic
 
 void setup() {
   client = new MQTTClient(this);
