@@ -1,7 +1,8 @@
 #include <ArduinoJson.h>
 
 const int motor = 3; 
-StaticJsonBuffer<512> jsonBuffer;
+const int LED = 13;
+bool blindShut = false;
 
 void setup() {
   Serial.begin(9600);
@@ -10,8 +11,10 @@ void setup() {
 
 void loop() {
   if (Serial.available() > 0) {
+    StaticJsonBuffer<1024> jsonBuffer;
     String json = Serial.readStringUntil('\n');
     JsonObject& root = jsonBuffer.parseObject(json);
+    Serial.println(json);
     int id = root["id"];
     int motorVal = root["motor"];
     if (id == 7){
@@ -19,6 +22,13 @@ void loop() {
         digitalWrite(motor, HIGH);
         delay(5000);
         digitalWrite(motor, LOW);
+        if(blindShut == false){
+        digitalWrite(LED, HIGH);
+        blindShut = true;
+        }else{
+          digitalWrite(LED, LOW);
+          blindShut = false;
+          }
       }
     }
   }

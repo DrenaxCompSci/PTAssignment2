@@ -7,10 +7,6 @@ float c1 = 1.009249522e-03, c2 = 2.378405444e-04, c3 = 2.019202697e-07; //Used t
 const int buzzer = 9; //Define buzzer pin 
 const int LED = 13; 
 
-StaticJsonBuffer<512> jsonBuffer;
-JsonObject& obj = jsonBuffer.createObject();
-
-
 struct values{
   int ID;
   int Val;
@@ -25,20 +21,25 @@ pinMode(LED, OUTPUT);
 
 void loop() {
 
+  StaticJsonBuffer<1024> jsonBuffer;
+  JsonObject& obj = jsonBuffer.createObject();
+  
   if(Serial.available() > 0){
     String JSON = Serial.readStringUntil('\n');
     JsonObject& objRec = jsonBuffer.parseObject(JSON);
     int value = objRec["id"];
     Serial.println(JSON);
-  //  Serial.println(value);
-
+    Serial.println();
+    Serial.println(value);
     if(value == 7){
 
       int value2 = objRec["radiator"];
-      
+      Serial.println(value2);
       if(value2 == 1){
-          digitalWrite(LED, HIGH); //LED lights up 
-        }    
+          digitalWrite(LED, HIGH); //LED light on to signal radiator on  
+        }else if(value2 == 0){
+          digitalWrite(LED, LOW); //LED light off to signal radiator off
+          }    
       }    
     }
 
