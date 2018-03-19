@@ -13,42 +13,56 @@ def jsonCheck(someJson):
 
 # usb setup
 ser = serial.Serial('/dev/ttyUSB0', 9600)
-# Twilio setup
-account_sid = "AC3ae40e42edc935551d4b2993f9dc44e4"
-auth_token = "287a9d36b8b1f460751aed4111640218"
-client = Client(account_sid, auth_token)
+
+blindStatus = "0" # 0 means the blind is up, 1 means the blind is down
 
 while True:
-    movementData = ser.readline() # reads in data from serial
-    if jsonCheck(movementData): # checks if input is valid json
-        if not isinstance(movementData, (int, long)):
-            jsonData = json.loads(movementData)
-            if jsonData['id'] == "6": # if data is from receiver
-                print("Data received!")
-                print(movementData)
-                # temperature threshholds
-                if jsonData['temperature'] > 25:
-                    parsed_json = json.loads('{"id": 5, "temperature": 0}')
-                    temperatureStatus = "0"
-                    #ser.write(json.dumps(parsed_json))
-                    print("Temp above 25 degrees")
-                else:
-                    parsed_json = json.loads('{"id": 5, "temperature": 1}')
-                    temperatureStatus = "1"
-                    #ser.write(json.dumps(parsed_json))
-                    print("Temp below 25 degrees")
-                if jsonData['ldr'] < 190:
-                    ldrStatus = "1"
-                    print("ldr above 190")
-                else:
-                    ldrStatus = "0"
-                    print("ldr below 190")
-                jsonString = json.loads('{"id": 5, "radiator": ' + temperatureStatus + ', "motor": ' + ldrStatus + '}')
-                ser.write(json.dumps(jsonString))
-                time.sleep(5)
-    else:
-        print("Invalid json")
+    LDRData = 0
+    TemperatureData = 0
+    while LDRData == 0 or TemperatureData == 0:
+        sensorData = ser.readline()
+        if jsonCheck(sensorData):
+            try:
+                jsonSensorData = json.loads(sensorData)
+                sensorId = jsonSensorData['id']
+                print("Json data: ", jsonSensorData)
+                if sensorId == 1: # pir
+                    PIRData = jsonSensorData['value']
+                elif sensorId == 2: #ldr
+                    LDRData = jsonSensorData['value']
+                elif sensorId == 3: #thermistor
+                    TemperatureData = jsonSensorData['value']
+            except TypeError:
+                print("ERROR: Integer has been passed in")
+        
+    print("All Data received")
 
+    if TemperatureData > 25:
+        temperatureStatus = "0"
+    else:
+        temperatureStatus = "1"
+        
+    if LDRData > 140: # too dark
+        if blindStatus == "0": # if blind is up do nothing
+            ldrStatus = "0"
+        else: # else put blind up
+            ldrStatus = "1"
+            blindStatus = "0"
+            print("Moving blind up")
+    else: # too light
+        if blindStatus == "1": # if blind is down do nothing 
+            ldrStatus = "0"
+        else:
+            ldrStatus = "1" # else put blind down
+            blindStatus = "1"
+            print("Moving blind down")
+            
+    jsonString = json.loads('{"id": 7, "radiator": ' + temperatureStatus + ', "motor": ' + ldrStatus + '}')
+    print("Broadcasting JSON packet...")
+    print(jsonString)
+    ser.write(json.dumps(jsonString))
+
+'''
 #while True:
     #movementData = ser.readline()
     #data = json.loads(movementData)
@@ -66,3 +80,4 @@ while True:
  #       ser.write(json.dumps(data))
 #    print(data['ldr'])
 
+'''
