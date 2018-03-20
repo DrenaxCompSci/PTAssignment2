@@ -4,26 +4,37 @@ import processing.serial.*; //library used to access serial ports
 import controlP5.*; //library to create GUI
 import static javax.swing.JOptionPane.*;
 import java.util.Calendar;
+import mqtt.*;
 
 Serial port; //Defining serial port to read and write to.
 
 PFont font; //create font object
 ControlP5 cp5;  //create Controlp5 object
 kinectControls cf;
-int value; 
+
+
 Calendar rightNow = Calendar.getInstance();
 int hour = rightNow.get(Calendar.HOUR_OF_DAY);
 int lastHour = 25;
+
 String message =  "Kinect camera starting...";
 Kinect kinect; //Kinect object
 float tilt; //Tilt variable to move kinect up and down 
 boolean nightVision = false;
 boolean flag = false; 
+int value; 
+
+MQTTClient client;
+String topic = "testTopic"; //Same as Pi Camera topic
 
 void settings() {
   size(600,520,P3D);
 }
 void setup() {
+  client = new MQTTClient(this);
+  client.connect("mqtt://192.168.10.124", "Kinect"); //Connect to broker
+  client.subscribe(topic); //Subscribe to test topic
+  
   size(600, 520); //Set kinect output image size
   kinect = new Kinect(this); //Initialise kinect object to plugged in kinect
   kinect.initVideo(); //Initialise video from kinect
@@ -104,6 +115,14 @@ void keyPressed() {
     tilt = constrain(tilt, 0, 30); //Limit how far the kinect can be tilted
     kinect.setTilt(tilt); //Set the new tilt after a key press
   }
+  
+  void messageReceived(String topic, byte[] payload) {
+  println("new message: " + topic + " - " + new String(payload)); //Print message received from broker that is published on topic
+  saveFrame(); 
+  System.out.println("Automated picture taken!");
+  message = "Automated picture taken!";
+  
+}
   
  
   class kinectControls extends PApplet {

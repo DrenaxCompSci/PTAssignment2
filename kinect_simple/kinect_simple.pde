@@ -1,18 +1,30 @@
+//Kinect code example used and modified: https://github.com/shiffman/OpenKinect-for-Processing
+//MQTT example code used and modified: https://github.com/256dpi/processing-mqtt
+
+//This is the code running on the Raspberry Pi 3 to obtain a live stream and take photos either manually, or using MQTT.
 import org.openkinect.freenect.*;
 import org.openkinect.processing.*;
 import static javax.swing.JOptionPane.*;
 import java.util.Calendar;
-
+import mqtt.*;
 
 Kinect kinect; //Kinect object
 float tilt; //Tilt variable to move kinect up and down 
 boolean nightVision = false;
+
 Calendar rightNow = Calendar.getInstance();
 int hour = rightNow.get(Calendar.HOUR_OF_DAY);
 int lastHour = 25;
 String message =  "Kinect camera starting...";
 
+MQTTClient client;
+String topic = "testTopic"; //Same as Pi Camera topic
+
 void setup() {
+  client = new MQTTClient(this);
+  client.connect("mqtt://192.168.10.124", "Kinect"); //Connect to broker
+  client.subscribe(topic); //Subscribe to test topic
+  
   size(600, 520); //Set kinect output image size
   kinect = new Kinect(this); //Initialise kinect object to plugged in kinect
   kinect.initVideo(); //Initialise video from kinect
@@ -49,8 +61,6 @@ void cameraTime(){
     message = "Night time detected. Enabling IR...";
   }
    lastHour = hour;
-  
-
 }
 
 void keyPressed() {
@@ -82,3 +92,12 @@ void keyPressed() {
     tilt = constrain(tilt, 0, 30); //Limit how far the kinect can be tilted
     kinect.setTilt(tilt); //Set the new tilt after a key press
   }
+  
+  
+  void messageReceived(String topic, byte[] messages) {
+  println("new message from  " + topic + ": " + new String(messages)); //Print message received from broker that is published on topic
+  saveFrame(); 
+  System.out.println("Automated picture taken!");
+  message = "Automated picture taken!";
+  
+}
