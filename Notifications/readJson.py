@@ -1,7 +1,6 @@
 import serial
 import json
 import time
-from twilio.rest import Client
 
 # bool, checks if valid json
 def jsonCheck(someJson):
