@@ -1,5 +1,16 @@
 //Temperature Sensor example code that has been used and modifed: http://www.circuitbasics.com/arduino-thermistor-temperature-sensor-tutorial/
 
+/*
+The temperature sensor uses a thermistor connected to the Arduino via a breadboard to read the current temperature in the room the Arduino is placed. 
+The reading is then converted into Celcius, and the reading is sent to the main commuication HUB (Raspberry Pi 3) via XBee radio communication in the 
+form of a JSON object. The received JSON object containing the temperature is then interpretted by the Raspberry Pi, and a JSON object is then sent 
+back to the temperature sensor containing either a 0 or 1 value, which indicates whether or not to turn the radiator on or off (green LED in pin 13). 
+If the temperature exceeds 25 degrees Celcius, a 0 is sent and the radiator is turned off. If the temp is below 25, the radiator remains on. 
+
+Also, when the temperature exceeds 25 degrees Celcius, a red LED lights up and a buzzer is sounded to indicate to the user that the temeprature in 
+the room is too hot and that the radiator is being turned off once the correct message is received from the RPi3 via XBee radio communication. 
+*/
+
 #include <ArduinoJson.h>
 
 int ThermistorPin = 0; //Define thermistor pin
