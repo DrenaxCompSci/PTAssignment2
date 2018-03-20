@@ -1,3 +1,6 @@
+//Initial design for the Kinect GUI. This application was used to primarily design the Kinect GUI and was integrated successfully into the Kinect application. 
+// The integration of using 2 application windows was achieved by using a control frame in the Kinect application to contain the kinect controls GUI. 
+
 import processing.serial.*; //library used to access serial ports
 import controlP5.*; //library to create GUI
 import java.awt.Robot;
