@@ -5,8 +5,8 @@ String topic = "testTopic"; //Same as Pi Camera topic
 
 void setup() {
   client = new MQTTClient(this);
-  client.connect("192.168.10.124", "1883"); //Connect to broker
-  client.connect("mqtt://192.168.10.124:1883", "Processing"); //Connect to broker
+  //client.connect("192.168.10.124", "1883"); //Connect to broker
+  client.connect("mqtt://192.168.10.124", "Processing"); //Connect to broker
   client.subscribe(topic); //Subscribe to test topic
 }
 
