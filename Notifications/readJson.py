@@ -28,9 +28,9 @@ while True:
                 print("Json data: ", jsonSensorData)
                 if sensorId == 1: # pir
                     PIRData = jsonSensorData['value']
-                elif sensorId == 2: #ldr
+                elif sensorId == 2: # ldr
                     LDRData = jsonSensorData['value']
-                elif sensorId == 3: #thermistor
+                elif sensorId == 3: # thermistor
                     TemperatureData = jsonSensorData['value']
             except TypeError:
                 print("ERROR: Integer has been passed in")
@@ -61,23 +61,3 @@ while True:
     print("Broadcasting JSON packet...")
     print(jsonString)
     ser.write(json.dumps(jsonString))
-
-'''
-#while True:
-    #movementData = ser.readline()
-    #data = json.loads(movementData)
-    #if data['temperature'] > 25:
-      #  print("hot hot hot")
-     #   data['id'] = 5
-    #    ser.write(json.dumps(data))
-        #client.api.account.messages.create(
-        #    to="+447598722448",
-        #    from_="+441422400297",
-        #    body="Hey, it's bloody hot!")
-    #else:
-   #     data['id'] = 5
-  #      print("nice")
- #       ser.write(json.dumps(data))
-#    print(data['ldr'])
-
-'''

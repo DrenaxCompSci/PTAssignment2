@@ -22,7 +22,7 @@ camera.start_preview()
 time.sleep(5)
 camera.stop_preview()
 
-foundFlag = True
+# foundFlag = True
 pictureCounter = 0
 imgName = "intruder"
 imgExtension = ".jpg"
@@ -33,6 +33,7 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe(topic)
 
 def on_message(client, userdata, msg):
+    global pictureCounter
     print("Message received: ", str(msg.payload))
     imgFile = imgName + str(pictureCounter) + imgExtension
     camera.capture(imgFile) # update to variable jpg name
@@ -51,19 +52,4 @@ print("Waiting on movement data")
 
 client.loop_forever()
 client.disconnect()
-
-'''
-# reads arduino data forever, capturing an image if H is detected
-while foundFlag:
-	if movementData == 'H':
-            print("In if statement")
-            foundFlag = False
-            imgFile = imgName + str(pictureCounter) + imgExtension
-            camera.capture(imgFile) # update to variable jpg name
-            pictureCounter = pictureCounter + 1
-            while movementData != 'L':
-                movementData = ser.read()
-                foundFlag = True
-'''         
-        
 
