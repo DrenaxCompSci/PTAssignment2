@@ -1,0 +1,43 @@
+\hypertarget{_motor_8cpp}{}\section{C\+:/\+Users/\+Admin/\+Documents/\+D\+OX I\+N/\+Motor.cpp File Reference}
+\label{_motor_8cpp}\index{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/\+Motor.\+cpp@{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/\+Motor.\+cpp}}
+{\ttfamily \#include $<$Arduino\+Json.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_motor_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{_motor_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_motor_8cpp_aded8dbeb2432f319ac781af7e1037993}\label{_motor_8cpp_aded8dbeb2432f319ac781af7e1037993}} 
+const int \mbox{\hyperlink{_motor_8cpp_aded8dbeb2432f319ac781af7e1037993}{motor}} = 3
+\begin{DoxyCompactList}\small\item\em Output motor pin for the arduino. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_motor_8cpp_a1121ae69cec057f5b4a54dc28c930c3c}\label{_motor_8cpp_a1121ae69cec057f5b4a54dc28c930c3c}} 
+Static\+Json\+Buffer$<$ 512 $>$ \mbox{\hyperlink{_motor_8cpp_a1121ae69cec057f5b4a54dc28c930c3c}{json\+Buffer}}
+\begin{DoxyCompactList}\small\item\em Allocate memory for the J\+S\+ON object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the code which is uploaded to the Arduino connected to the DC motor.
+
+\begin{DoxyAuthor}{Author}
+Adam Beresford, Rupert Bennet, Mark Austin, James Kirk
+\end{DoxyAuthor}
+B\+SD license, all text here must be included in any redistribution. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_motor_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{_motor_8cpp_afe461d27b9c48d5921c00d521181f12f}} 
+\index{Motor.\+cpp@{Motor.\+cpp}!loop@{loop}}
+\index{loop@{loop}!Motor.\+cpp@{Motor.\+cpp}}
+\subsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Repeatdly poll for serial data, check if the J\+S\+ON object recieved has data which is intended for the motor arduino by checking the ID. Then if we want to interact with this Arduino, turn on the motor to roll the blind down. \mbox{\Hypertarget{_motor_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{_motor_8cpp_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{Motor.\+cpp@{Motor.\+cpp}!setup@{setup}}
+\index{setup@{setup}!Motor.\+cpp@{Motor.\+cpp}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Method which is initially called on initialisation, sets up the board rate and output pins for the motor on the Arduino. 

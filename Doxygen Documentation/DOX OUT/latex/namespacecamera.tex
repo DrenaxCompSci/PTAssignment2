@@ -1,0 +1,39 @@
+\hypertarget{namespacecamera}{}\section{camera Namespace Reference}
+\label{namespacecamera}\index{camera@{camera}}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacecamera_a93c2c649cb36c557294f0b008f8bbf3b}\label{namespacecamera_a93c2c649cb36c557294f0b008f8bbf3b}} 
+{\bfseries ser} = serial.\+Serial(\textquotesingle{}/dev/tty\+U\+S\+B0\textquotesingle{}, 9600)
+\item 
+\mbox{\Hypertarget{namespacecamera_a9aa65597c9f0f1a290fffaf8ef1a5bcc}\label{namespacecamera_a9aa65597c9f0f1a290fffaf8ef1a5bcc}} 
+{\bfseries camera} = picamera.\+Pi\+Camera()
+\item 
+\mbox{\Hypertarget{namespacecamera_a543d8fea29aa207c0443cef9b69caf57}\label{namespacecamera_a543d8fea29aa207c0443cef9b69caf57}} 
+{\bfseries vflip}
+\item 
+\mbox{\Hypertarget{namespacecamera_ad43bc45c94bef033ce35d043748f0004}\label{namespacecamera_ad43bc45c94bef033ce35d043748f0004}} 
+bool {\bfseries found\+Flag} = True
+\item 
+\mbox{\Hypertarget{namespacecamera_aa9cfa65d995f7165d3799ac78db5f839}\label{namespacecamera_aa9cfa65d995f7165d3799ac78db5f839}} 
+int {\bfseries picture\+Counter} = 0
+\item 
+\mbox{\Hypertarget{namespacecamera_ad4444b733711463f1cb0a328c5a41f49}\label{namespacecamera_ad4444b733711463f1cb0a328c5a41f49}} 
+string {\bfseries img\+Name} = \char`\"{}intruder\char`\"{}
+\item 
+\mbox{\Hypertarget{namespacecamera_acd8b88eead4d0dd2dc49f3e070972720}\label{namespacecamera_acd8b88eead4d0dd2dc49f3e070972720}} 
+string {\bfseries img\+Extension} = \char`\"{}.jpg\char`\"{}
+\item 
+\mbox{\Hypertarget{namespacecamera_a57db776c12f449184c9a11d679417368}\label{namespacecamera_a57db776c12f449184c9a11d679417368}} 
+{\bfseries movement\+Data} = ser.\+read()
+\item 
+\mbox{\Hypertarget{namespacecamera_a4113737e99fc1721361a2f42072ecd20}\label{namespacecamera_a4113737e99fc1721361a2f42072ecd20}} 
+string {\bfseries img\+File} = img\+Name + str(picture\+Counter) + img\+Extension
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}This is the code to trigger the camera which is connected to
+the pi to take a picture.
+\end{DoxyVerb}
+ 

@@ -1,0 +1,84 @@
+\hypertarget{temp_sensor_8cpp}{}\section{C\+:/\+Users/\+Admin/\+Documents/\+D\+OX I\+N/temp\+Sensor.cpp File Reference}
+\label{temp_sensor_8cpp}\index{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/temp\+Sensor.\+cpp@{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/temp\+Sensor.\+cpp}}
+{\ttfamily \#include $<$Arduino\+Json.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvalues}{values}}
+\begin{DoxyCompactList}\small\item\em ID and value which are to be used for the J\+S\+ON object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{temp_sensor_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{temp_sensor_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_abfe899496464a84ec93e427194d84102}\label{temp_sensor_8cpp_abfe899496464a84ec93e427194d84102}} 
+int \mbox{\hyperlink{temp_sensor_8cpp_abfe899496464a84ec93e427194d84102}{Thermistor\+Pin}} = 0
+\begin{DoxyCompactList}\small\item\em Pin on the Arduino which thermistor is in. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_a77e9ff6424049425457fcf0018cb8f8a}\label{temp_sensor_8cpp_a77e9ff6424049425457fcf0018cb8f8a}} 
+int \mbox{\hyperlink{temp_sensor_8cpp_a77e9ff6424049425457fcf0018cb8f8a}{temp\+Value}}
+\begin{DoxyCompactList}\small\item\em Value from the thermistor before temp conversion is carried out. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_ac4a915a708a09faabc32fa30a7426736}\label{temp_sensor_8cpp_ac4a915a708a09faabc32fa30a7426736}} 
+float \mbox{\hyperlink{temp_sensor_8cpp_ac4a915a708a09faabc32fa30a7426736}{log\+R2}}
+\begin{DoxyCompactList}\small\item\em Used for calculations for celcius and Fahrenheit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_a1d65e51026be768f97529a52ebb5f8db}\label{temp_sensor_8cpp_a1d65e51026be768f97529a52ebb5f8db}} 
+float \mbox{\hyperlink{temp_sensor_8cpp_a1d65e51026be768f97529a52ebb5f8db}{R2}}
+\begin{DoxyCompactList}\small\item\em Used for calculations for celcius and Fahrenheit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_a1e59dd36aafb310776e617456b9415b5}\label{temp_sensor_8cpp_a1e59dd36aafb310776e617456b9415b5}} 
+float \mbox{\hyperlink{temp_sensor_8cpp_a1e59dd36aafb310776e617456b9415b5}{T}}
+\begin{DoxyCompactList}\small\item\em Used for calculations for celcius and Fahrenheit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_a22e1179371b98f23e756984bc5e9ba95}\label{temp_sensor_8cpp_a22e1179371b98f23e756984bc5e9ba95}} 
+float \mbox{\hyperlink{temp_sensor_8cpp_a22e1179371b98f23e756984bc5e9ba95}{Tc}}
+\begin{DoxyCompactList}\small\item\em Used for calculations for celcius and Fahrenheit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_a7a148e3fc2e5f98ea09da0b4481e4613}\label{temp_sensor_8cpp_a7a148e3fc2e5f98ea09da0b4481e4613}} 
+float \mbox{\hyperlink{temp_sensor_8cpp_a7a148e3fc2e5f98ea09da0b4481e4613}{Tf}}
+\begin{DoxyCompactList}\small\item\em Used for calculations for celcius and Fahrenheit. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_a7fea4d2f6f3c31b60301494b136558af}\label{temp_sensor_8cpp_a7fea4d2f6f3c31b60301494b136558af}} 
+float \mbox{\hyperlink{temp_sensor_8cpp_a7fea4d2f6f3c31b60301494b136558af}{c1}} = 1.\+009249522e-\/03
+\begin{DoxyCompactList}\small\item\em Used to calculate celcius. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_a0fe1885b4d10c978f52619ab968adadc}\label{temp_sensor_8cpp_a0fe1885b4d10c978f52619ab968adadc}} 
+float \mbox{\hyperlink{temp_sensor_8cpp_a0fe1885b4d10c978f52619ab968adadc}{c2}} = 2.\+378405444e-\/04
+\begin{DoxyCompactList}\small\item\em Used to calculate celcius. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_a1b932a1e2adf36a4506e7470f831da40}\label{temp_sensor_8cpp_a1b932a1e2adf36a4506e7470f831da40}} 
+float \mbox{\hyperlink{temp_sensor_8cpp_a1b932a1e2adf36a4506e7470f831da40}{c3}} = 2.\+019202697e-\/07
+\begin{DoxyCompactList}\small\item\em Used to calculate celcius. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_aa19b07c6332e4fb436ceea2ff500427b}\label{temp_sensor_8cpp_aa19b07c6332e4fb436ceea2ff500427b}} 
+const int \mbox{\hyperlink{temp_sensor_8cpp_aa19b07c6332e4fb436ceea2ff500427b}{buzzer}} = 9
+\begin{DoxyCompactList}\small\item\em Buzzer pin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_a734029c5fc6508cd75bf19cd7f52b66d}\label{temp_sensor_8cpp_a734029c5fc6508cd75bf19cd7f52b66d}} 
+const int \mbox{\hyperlink{temp_sensor_8cpp_a734029c5fc6508cd75bf19cd7f52b66d}{L\+ED}} = 13
+\begin{DoxyCompactList}\small\item\em L\+ED pin. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_a1121ae69cec057f5b4a54dc28c930c3c}\label{temp_sensor_8cpp_a1121ae69cec057f5b4a54dc28c930c3c}} 
+Static\+Json\+Buffer$<$ 512 $>$ \mbox{\hyperlink{temp_sensor_8cpp_a1121ae69cec057f5b4a54dc28c930c3c}{json\+Buffer}}
+\begin{DoxyCompactList}\small\item\em Allocate memory for the J\+S\+ON object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{temp_sensor_8cpp_aca719bdab5c2994775645d688a2803b8}\label{temp_sensor_8cpp_aca719bdab5c2994775645d688a2803b8}} 
+Json\+Object \& \mbox{\hyperlink{temp_sensor_8cpp_aca719bdab5c2994775645d688a2803b8}{obj}} = json\+Buffer.\+create\+Object()
+\begin{DoxyCompactList}\small\item\em J\+S\+ON object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the temperature sensor code which is loaded onto the Arduino \subparagraph*{F\+I\+LL T\+HE R\+E\+ST OF T\+H\+IS IN H\+E\+RE}
+
+\begin{DoxyAuthor}{Author}
+Adam Beresford, Rupert Bennet, Mark Austin, James Kirk
+\end{DoxyAuthor}
+B\+SD license, all text here must be included in any redistribution. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{temp_sensor_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{temp_sensor_8cpp_afe461d27b9c48d5921c00d521181f12f}} 
+\index{temp\+Sensor.\+cpp@{temp\+Sensor.\+cpp}!loop@{loop}}
+\index{loop@{loop}!temp\+Sensor.\+cpp@{temp\+Sensor.\+cpp}}
+\subsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Constantly poll for any Serial data. When serial data is recieved, look for the ID which corresponds to this specific Arduino. The buzzer sounds if the temperature in the room goes above a certain temperature. \mbox{\Hypertarget{temp_sensor_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{temp_sensor_8cpp_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{temp\+Sensor.\+cpp@{temp\+Sensor.\+cpp}!setup@{setup}}
+\index{setup@{setup}!temp\+Sensor.\+cpp@{temp\+Sensor.\+cpp}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Method which is initially called on initialisation, sets up the board rate and output pins for the buzzer and L\+ED on the Arduino. 
