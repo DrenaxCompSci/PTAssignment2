@@ -1,3 +1,9 @@
+/*
+The inspiration for this code was taken from the LDR sensor tutorial available on:
+https://create.arduino.cc/projecthub/tarantula3/using-an-ldr-JSON objects to simply 
+send the values back in the format the pi is expecting.
+*/ 
+
 int photocellPin = 0;     // the cell and 10K pulldown are connected to a0
 int photocellReading;     // the analog reading from the sensor divider
 int LEDpin = 10;          // connect Red LED to pin 11 (PWM pin)
