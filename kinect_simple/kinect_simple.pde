@@ -38,6 +38,7 @@ void setup() {
 }
 
 void draw() {
+  rightNow = Calendar.getInstance();
   background(0);
   image(kinect.getVideoImage(), 0, 0); //Set video image in centre of frame
   text(message, 10, 515);
@@ -88,6 +89,7 @@ void keyPressed() {
       "Kinect Camera", ERROR_MESSAGE);
        message = "Image captured and saved to kinect directory.";
        System.out.println("Image captured and saved to kinect directory.");
+       //System.out.println(rightNow.getTime().toString());
     } else  if(key == 'i'){
       nightVision = !nightVision;
       kinect.enableIR(nightVision);

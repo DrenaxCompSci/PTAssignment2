@@ -58,6 +58,7 @@ void setup() {
 }
 
 void draw() {
+  rightNow = Calendar.getInstance();
   background(0);
   image(kinect.getVideoImage(), 0, 0); //Set video image in centre of frame
   text(message, 10, 510);
@@ -106,7 +107,6 @@ void keyPressed() {
       value = 0;
     } else if (value == 3){
       saveFrame("security_" + rightNow.getTime().toString() + ".jpg");
-       System.out.println("value " + value);
        showMessageDialog(null, "Success! Image captured.", 
       "Kinect Camera", ERROR_MESSAGE);
        message = "Image captured and saved to kinect directory.";
