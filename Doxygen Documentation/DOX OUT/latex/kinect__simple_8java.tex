@@ -1,0 +1,89 @@
+\hypertarget{kinect__simple_8java}{}\section{C\+:/\+Users/\+Admin/\+Documents/\+D\+OX I\+N/kinect\+\_\+simple.java File Reference}
+\label{kinect__simple_8java}\index{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/kinect\+\_\+simple.\+java@{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/kinect\+\_\+simple.\+java}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{kinect__simple_8java_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{kinect__simple_8java_a56c5cf8a568cff737ff95520cbe6b405}{draw}} ()
+\item 
+void \mbox{\hyperlink{kinect__simple_8java_aa4d3fddcd7f8835cf741f25f09f7fa3c}{camera\+Time}} ()
+\item 
+void \mbox{\hyperlink{kinect__simple_8java_a908174a144ef32ef52d3cd01b7194f59}{key\+Pressed}} ()
+\item 
+void \mbox{\hyperlink{kinect__simple_8java_ab4f9d4c3fcbea01b930d0ce2f8ed5353}{message\+Received}} (String \mbox{\hyperlink{kinect__simple_8java_a9df764743a91e91cd6cba566200bf269}{topic}}, byte\mbox{[}$\,$\mbox{]} messages)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{kinect__simple_8java_a3d188e56b51ad3b9b2dcf181a2705f24}\label{kinect__simple_8java_a3d188e56b51ad3b9b2dcf181a2705f24}} 
+Kinect \mbox{\hyperlink{kinect__simple_8java_a3d188e56b51ad3b9b2dcf181a2705f24}{kinect}}
+\begin{DoxyCompactList}\small\item\em Create instance of the kinect. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect__simple_8java_a8b07a56c9e764ad9c06fe53521fcf86d}\label{kinect__simple_8java_a8b07a56c9e764ad9c06fe53521fcf86d}} 
+float \mbox{\hyperlink{kinect__simple_8java_a8b07a56c9e764ad9c06fe53521fcf86d}{tilt}}
+\begin{DoxyCompactList}\small\item\em hold the tilt value \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect__simple_8java_a26899b04de400e5c9dcfc039ddaf225d}\label{kinect__simple_8java_a26899b04de400e5c9dcfc039ddaf225d}} 
+boolean \mbox{\hyperlink{kinect__simple_8java_a26899b04de400e5c9dcfc039ddaf225d}{night\+Vision}} = false
+\begin{DoxyCompactList}\small\item\em is the night vision mode enabled \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect__simple_8java_ac511a684c4564190f0c5e7a158943cc7}\label{kinect__simple_8java_ac511a684c4564190f0c5e7a158943cc7}} 
+Calendar \mbox{\hyperlink{kinect__simple_8java_ac511a684c4564190f0c5e7a158943cc7}{right\+Now}} = Calendar.\+get\+Instance()
+\begin{DoxyCompactList}\small\item\em current moment in time \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect__simple_8java_a15df9ba285cfd842f284025f904edc9c}\label{kinect__simple_8java_a15df9ba285cfd842f284025f904edc9c}} 
+int \mbox{\hyperlink{kinect__simple_8java_a15df9ba285cfd842f284025f904edc9c}{hour}} = right\+Now.\+get(Calendar.\+H\+O\+U\+R\+\_\+\+O\+F\+\_\+\+D\+AY)
+\begin{DoxyCompactList}\small\item\em the current hour in the day \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect__simple_8java_aabbd4877b1894aa57dc8bad7f55fc192}\label{kinect__simple_8java_aabbd4877b1894aa57dc8bad7f55fc192}} 
+int \mbox{\hyperlink{kinect__simple_8java_aabbd4877b1894aa57dc8bad7f55fc192}{last\+Hour}} = 25
+\begin{DoxyCompactList}\small\item\em hours in the day + 1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect__simple_8java_a2836db0f8ae4563c70935b5e514bdc21}\label{kinect__simple_8java_a2836db0f8ae4563c70935b5e514bdc21}} 
+String \mbox{\hyperlink{kinect__simple_8java_a2836db0f8ae4563c70935b5e514bdc21}{message}} = \char`\"{}Kinect camera starting...\char`\"{}
+\begin{DoxyCompactList}\small\item\em Output message. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect__simple_8java_aaa05c2364ca8b1f85681ffc09effed80}\label{kinect__simple_8java_aaa05c2364ca8b1f85681ffc09effed80}} 
+M\+Q\+T\+T\+Client \mbox{\hyperlink{kinect__simple_8java_aaa05c2364ca8b1f85681ffc09effed80}{client}}
+\begin{DoxyCompactList}\small\item\em Instance of the M\+Q\+TT client. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect__simple_8java_a9df764743a91e91cd6cba566200bf269}\label{kinect__simple_8java_a9df764743a91e91cd6cba566200bf269}} 
+String \mbox{\hyperlink{kinect__simple_8java_a9df764743a91e91cd6cba566200bf269}{topic}} = \char`\"{}test\+Topic\char`\"{}
+\begin{DoxyCompactList}\small\item\em Subscriber topic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Live stream of the kinect camera, in either IR or normal lense. Supports, tilting the camera, capturing an image, toggling night vision on and off. The lense is set depending up on the time on the system.
+
+\begin{DoxyAuthor}{Author}
+Adam Beresford, Rupert Bennet, Mark Austin, James Kirk
+\end{DoxyAuthor}
+B\+SD license, all text here must be included in any redistribution. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{kinect__simple_8java_aa4d3fddcd7f8835cf741f25f09f7fa3c}\label{kinect__simple_8java_aa4d3fddcd7f8835cf741f25f09f7fa3c}} 
+\index{kinect\+\_\+simple.\+java@{kinect\+\_\+simple.\+java}!camera\+Time@{camera\+Time}}
+\index{camera\+Time@{camera\+Time}!kinect\+\_\+simple.\+java@{kinect\+\_\+simple.\+java}}
+\subsubsection{\texorpdfstring{camera\+Time()}{cameraTime()}}
+{\footnotesize\ttfamily void camera\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Change the lense mode depending upon the time of day \mbox{\Hypertarget{kinect__simple_8java_a56c5cf8a568cff737ff95520cbe6b405}\label{kinect__simple_8java_a56c5cf8a568cff737ff95520cbe6b405}} 
+\index{kinect\+\_\+simple.\+java@{kinect\+\_\+simple.\+java}!draw@{draw}}
+\index{draw@{draw}!kinect\+\_\+simple.\+java@{kinect\+\_\+simple.\+java}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Paint the G\+UI to the screen, initiliase the video stream to fill the size of the G\+UI. The lense format is decided by the current time. Output this to the window. \mbox{\Hypertarget{kinect__simple_8java_a908174a144ef32ef52d3cd01b7194f59}\label{kinect__simple_8java_a908174a144ef32ef52d3cd01b7194f59}} 
+\index{kinect\+\_\+simple.\+java@{kinect\+\_\+simple.\+java}!key\+Pressed@{key\+Pressed}}
+\index{key\+Pressed@{key\+Pressed}!kinect\+\_\+simple.\+java@{kinect\+\_\+simple.\+java}}
+\subsubsection{\texorpdfstring{key\+Pressed()}{keyPressed()}}
+{\footnotesize\ttfamily void key\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Keyboard shortcuts for, changing lense mode, move the connect tilt and caputing an image. \mbox{\Hypertarget{kinect__simple_8java_ab4f9d4c3fcbea01b930d0ce2f8ed5353}\label{kinect__simple_8java_ab4f9d4c3fcbea01b930d0ce2f8ed5353}} 
+\index{kinect\+\_\+simple.\+java@{kinect\+\_\+simple.\+java}!message\+Received@{message\+Received}}
+\index{message\+Received@{message\+Received}!kinect\+\_\+simple.\+java@{kinect\+\_\+simple.\+java}}
+\subsubsection{\texorpdfstring{message\+Received()}{messageReceived()}}
+{\footnotesize\ttfamily void message\+Received (\begin{DoxyParamCaption}\item[{String}]{topic,  }\item[{byte \mbox{[}$\,$\mbox{]}}]{messages }\end{DoxyParamCaption})}
+
+Debug to print out it has recieved from broker and the message recieved. When message has been recieved take picture. \mbox{\Hypertarget{kinect__simple_8java_a4fc01d736fe50cf5b977f755b675f11d}\label{kinect__simple_8java_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{kinect\+\_\+simple.\+java@{kinect\+\_\+simple.\+java}!setup@{setup}}
+\index{setup@{setup}!kinect\+\_\+simple.\+java@{kinect\+\_\+simple.\+java}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Iniitliase the arduino, up the size of the output from the kinect, create an instance of the kinect and enable the IR mode straight away, gain the value of the current tilt from the kincect to prevent trying to tilt beyond its capability
+
+Setup the communications with the M\+Q\+TT broker. Subscribe to certain topic and then enable kinect streaming. 

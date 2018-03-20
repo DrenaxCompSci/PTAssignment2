@@ -1,0 +1,100 @@
+\hypertarget{kinect_8java}{}\section{C\+:/\+Users/\+Admin/\+Documents/\+D\+OX I\+N/kinect.java File Reference}
+\label{kinect_8java}\index{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/kinect.\+java@{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/kinect.\+java}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries kinect\+Controls}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{kinect_8java_a6071c2f6a6eab58f29a7a5baf3696e6b}{settings}} ()
+\item 
+void \mbox{\hyperlink{kinect_8java_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{kinect_8java_a56c5cf8a568cff737ff95520cbe6b405}{draw}} ()
+\item 
+void \mbox{\hyperlink{kinect_8java_aa4d3fddcd7f8835cf741f25f09f7fa3c}{camera\+Time}} ()
+\item 
+void \mbox{\hyperlink{kinect_8java_a167bd7e8e9b9a2b8e5e5a2e73d5c153d}{value\+Sent}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{kinect_8java_a6f9321e79a2bf3f798dadae2b7e40d4f}\label{kinect_8java_a6f9321e79a2bf3f798dadae2b7e40d4f}} 
+Serial \mbox{\hyperlink{kinect_8java_a6f9321e79a2bf3f798dadae2b7e40d4f}{port}}
+\begin{DoxyCompactList}\small\item\em Defining serial port to read and write to. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect_8java_af9c1c758a8ab45e38e2b3c6d50bdafca}\label{kinect_8java_af9c1c758a8ab45e38e2b3c6d50bdafca}} 
+P\+Font \mbox{\hyperlink{kinect_8java_af9c1c758a8ab45e38e2b3c6d50bdafca}{font}}
+\begin{DoxyCompactList}\small\item\em Font to be used on the G\+UI. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect_8java_a566c58b097018b5743216014ac6396fa}\label{kinect_8java_a566c58b097018b5743216014ac6396fa}} 
+Control\+P5 \mbox{\hyperlink{kinect_8java_a566c58b097018b5743216014ac6396fa}{cp5}}
+\begin{DoxyCompactList}\small\item\em library used to create buttons and G\+UI in processing \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect_8java_acbb4a6ea4fa43e56a534ec1c9c27a446}\label{kinect_8java_acbb4a6ea4fa43e56a534ec1c9c27a446}} 
+kinect\+Controls \mbox{\hyperlink{kinect_8java_acbb4a6ea4fa43e56a534ec1c9c27a446}{cf}}
+\begin{DoxyCompactList}\small\item\em control frame for the G\+UI \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect_8java_ac4f474c82e82cbb89ca7c36dd52be0ed}\label{kinect_8java_ac4f474c82e82cbb89ca7c36dd52be0ed}} 
+int \mbox{\hyperlink{kinect_8java_ac4f474c82e82cbb89ca7c36dd52be0ed}{value}}
+\begin{DoxyCompactList}\small\item\em what is sent from the control frame to the main processing, to change on kinect \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect_8java_a3d188e56b51ad3b9b2dcf181a2705f24}\label{kinect_8java_a3d188e56b51ad3b9b2dcf181a2705f24}} 
+Kinect \mbox{\hyperlink{kinect_8java_a3d188e56b51ad3b9b2dcf181a2705f24}{kinect}}
+\begin{DoxyCompactList}\small\item\em Kinect object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect_8java_a8b07a56c9e764ad9c06fe53521fcf86d}\label{kinect_8java_a8b07a56c9e764ad9c06fe53521fcf86d}} 
+float \mbox{\hyperlink{kinect_8java_a8b07a56c9e764ad9c06fe53521fcf86d}{tilt}}
+\begin{DoxyCompactList}\small\item\em Tilt variable to move kinect up and down. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect_8java_a26899b04de400e5c9dcfc039ddaf225d}\label{kinect_8java_a26899b04de400e5c9dcfc039ddaf225d}} 
+boolean \mbox{\hyperlink{kinect_8java_a26899b04de400e5c9dcfc039ddaf225d}{night\+Vision}} = false
+\begin{DoxyCompactList}\small\item\em Disables/enables IR camera using boolean flag. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect_8java_ac511a684c4564190f0c5e7a158943cc7}\label{kinect_8java_ac511a684c4564190f0c5e7a158943cc7}} 
+Calendar \mbox{\hyperlink{kinect_8java_ac511a684c4564190f0c5e7a158943cc7}{right\+Now}} = Calendar.\+get\+Instance()
+\begin{DoxyCompactList}\small\item\em Get the current system time and assign to variable. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect_8java_a15df9ba285cfd842f284025f904edc9c}\label{kinect_8java_a15df9ba285cfd842f284025f904edc9c}} 
+int \mbox{\hyperlink{kinect_8java_a15df9ba285cfd842f284025f904edc9c}{hour}} = right\+Now.\+get(Calendar.\+H\+O\+U\+R\+\_\+\+O\+F\+\_\+\+D\+AY)
+\begin{DoxyCompactList}\small\item\em Get only the hour integer from the system time. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{kinect_8java_aabbd4877b1894aa57dc8bad7f55fc192}\label{kinect_8java_aabbd4877b1894aa57dc8bad7f55fc192}} 
+int \mbox{\hyperlink{kinect_8java_aabbd4877b1894aa57dc8bad7f55fc192}{last\+Hour}} = 25
+\begin{DoxyCompactList}\small\item\em Assign last hour variable to time that does not exist. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file is the Kinect with the G\+UI which is displayed on the Pi/\+Laptop using processing.
+
+\begin{DoxyAuthor}{Author}
+Adam Beresford, Rupert Bennet, Mark Austin, James Kirk
+\end{DoxyAuthor}
+B\+SD license, all text here must be included in any redistribution. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{kinect_8java_aa4d3fddcd7f8835cf741f25f09f7fa3c}\label{kinect_8java_aa4d3fddcd7f8835cf741f25f09f7fa3c}} 
+\index{kinect.\+java@{kinect.\+java}!camera\+Time@{camera\+Time}}
+\index{camera\+Time@{camera\+Time}!kinect.\+java@{kinect.\+java}}
+\subsubsection{\texorpdfstring{camera\+Time()}{cameraTime()}}
+{\footnotesize\ttfamily void camera\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Camera\+Time function used to define which camera the K\+Inect default loads with when the application is first opened. Also, changes the camera used automatically depending on the times defined below. \mbox{\Hypertarget{kinect_8java_a56c5cf8a568cff737ff95520cbe6b405}\label{kinect_8java_a56c5cf8a568cff737ff95520cbe6b405}} 
+\index{kinect.\+java@{kinect.\+java}!draw@{draw}}
+\index{draw@{draw}!kinect.\+java@{kinect.\+java}}
+\subsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Draw the main G\+UI. Draw is in an infinte loop so that the Kinect can be interacted with as long as the application is running. \mbox{\Hypertarget{kinect_8java_a6071c2f6a6eab58f29a7a5baf3696e6b}\label{kinect_8java_a6071c2f6a6eab58f29a7a5baf3696e6b}} 
+\index{kinect.\+java@{kinect.\+java}!settings@{settings}}
+\index{settings@{settings}!kinect.\+java@{kinect.\+java}}
+\subsubsection{\texorpdfstring{settings()}{settings()}}
+{\footnotesize\ttfamily void settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function used to create the secondary G\+UI control frame used to contain the buttons needed to control the kinect. \mbox{\Hypertarget{kinect_8java_a4fc01d736fe50cf5b977f755b675f11d}\label{kinect_8java_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{kinect.\+java@{kinect.\+java}!setup@{setup}}
+\index{setup@{setup}!kinect.\+java@{kinect.\+java}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Setup the main kinect video stream that is contained in the main G\+UI.
+
+Setup the communications with the M\+Q\+TT broker. Subscribe to certain topic and then enable kinect streaming. \mbox{\Hypertarget{kinect_8java_a167bd7e8e9b9a2b8e5e5a2e73d5c153d}\label{kinect_8java_a167bd7e8e9b9a2b8e5e5a2e73d5c153d}} 
+\index{kinect.\+java@{kinect.\+java}!value\+Sent@{value\+Sent}}
+\index{value\+Sent@{value\+Sent}!kinect.\+java@{kinect.\+java}}
+\subsubsection{\texorpdfstring{value\+Sent()}{valueSent()}}
+{\footnotesize\ttfamily void value\+Sent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Value\+Sent function sends a value to the main G\+UI depending which button is pressed in the secondary control frame G\+UI. The kinect then responds depending on the button pressed. 

@@ -1,0 +1,43 @@
+\hypertarget{_l_d_r___sensor___test_8cpp}{}\section{C\+:/\+Users/\+Admin/\+Documents/\+D\+OX I\+N/\+L\+D\+R\+\_\+\+Sensor\+\_\+\+Test.cpp File Reference}
+\label{_l_d_r___sensor___test_8cpp}\index{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/\+L\+D\+R\+\_\+\+Sensor\+\_\+\+Test.\+cpp@{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/\+L\+D\+R\+\_\+\+Sensor\+\_\+\+Test.\+cpp}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_l_d_r___sensor___test_8cpp_a7dfd9b79bc5a37d7df40207afbc5431f}\label{_l_d_r___sensor___test_8cpp_a7dfd9b79bc5a37d7df40207afbc5431f}} 
+void \mbox{\hyperlink{_l_d_r___sensor___test_8cpp_a7dfd9b79bc5a37d7df40207afbc5431f}{setup}} (void)
+\begin{DoxyCompactList}\small\item\em Inital setup of arduino, set up the serial connection with the board rate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_l_d_r___sensor___test_8cpp_a0b33edabd7f1c4e4a0bf32c67269be2f}{loop}} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_l_d_r___sensor___test_8cpp_ae68426cee3c1b9d070e5dd94b9b31260}\label{_l_d_r___sensor___test_8cpp_ae68426cee3c1b9d070e5dd94b9b31260}} 
+int \mbox{\hyperlink{_l_d_r___sensor___test_8cpp_ae68426cee3c1b9d070e5dd94b9b31260}{photocell\+Pin}} = 0
+\begin{DoxyCompactList}\small\item\em the cell and 10K pulldown are connected to a0 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_l_d_r___sensor___test_8cpp_a841e55937f7d6fcb0816cdabc3e5ae4d}\label{_l_d_r___sensor___test_8cpp_a841e55937f7d6fcb0816cdabc3e5ae4d}} 
+int \mbox{\hyperlink{_l_d_r___sensor___test_8cpp_a841e55937f7d6fcb0816cdabc3e5ae4d}{photocell\+Reading}}
+\begin{DoxyCompactList}\small\item\em the analog reading from the sensor divider \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_l_d_r___sensor___test_8cpp_ac737bcd16aa04bf21268756070e50ced}\label{_l_d_r___sensor___test_8cpp_ac737bcd16aa04bf21268756070e50ced}} 
+int \mbox{\hyperlink{_l_d_r___sensor___test_8cpp_ac737bcd16aa04bf21268756070e50ced}{L\+E\+Dpin}} = 10
+\begin{DoxyCompactList}\small\item\em connect Red L\+ED to pin 10 (P\+WM pin) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_l_d_r___sensor___test_8cpp_aa79e77f92ef5d04360090c74bfca1a8b}\label{_l_d_r___sensor___test_8cpp_aa79e77f92ef5d04360090c74bfca1a8b}} 
+int \mbox{\hyperlink{_l_d_r___sensor___test_8cpp_aa79e77f92ef5d04360090c74bfca1a8b}{L\+E\+Dbrightness}}
+\begin{DoxyCompactList}\small\item\em Store the value to set the L\+ED brightness depending on light reading. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the code which is uploaded to the Arduino which uses the L\+DR sensor to check for changes in the light levels.
+
+\begin{DoxyAuthor}{Author}
+Adam Beresford, Rupert Bennet, Mark Austin, James Kirk
+\end{DoxyAuthor}
+B\+SD license, all text here must be included in any redistribution. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_l_d_r___sensor___test_8cpp_a0b33edabd7f1c4e4a0bf32c67269be2f}\label{_l_d_r___sensor___test_8cpp_a0b33edabd7f1c4e4a0bf32c67269be2f}} 
+\index{L\+D\+R\+\_\+\+Sensor\+\_\+\+Test.\+cpp@{L\+D\+R\+\_\+\+Sensor\+\_\+\+Test.\+cpp}!loop@{loop}}
+\index{loop@{loop}!L\+D\+R\+\_\+\+Sensor\+\_\+\+Test.\+cpp@{L\+D\+R\+\_\+\+Sensor\+\_\+\+Test.\+cpp}}
+\subsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Constantly check for a reading from the L\+DR sensor, adjust the L\+E\+Dbrightness depending the value on the L\+DR sensor, this is here for debugging so we can check that it is getting changing L\+DR readings without putting out to the serial. 

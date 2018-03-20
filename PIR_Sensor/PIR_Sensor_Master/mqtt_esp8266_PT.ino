@@ -1,3 +1,11 @@
+//Sources https://nodemcu.readthedocs.io/en/master/en/modules/mqtt/
+//https://github.com/esp8266/Arduino/issues/584 -- explains the mapping of the pins on the NodeMCU board
+//https://www.youtube.com/watch?v=hH5DR6FWnjs
+
+//the code in this sketch uses the ESP8266 wifi module built into the NodeMCU to connect to the local wifi network and then connects to an MQTT server.
+//This has sketch combines both of these functions as well as combining code which reads from a PIR (motion) sensor to publish values to the MQTT server every time motion is detected.
+
+
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 

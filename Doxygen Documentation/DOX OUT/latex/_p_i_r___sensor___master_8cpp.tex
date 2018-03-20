@@ -1,0 +1,57 @@
+\hypertarget{_p_i_r___sensor___master_8cpp}{}\section{C\+:/\+Users/\+Admin/\+Documents/\+D\+OX I\+N/\+P\+I\+R\+\_\+\+Sensor\+\_\+\+Master.cpp File Reference}
+\label{_p_i_r___sensor___master_8cpp}\index{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/\+P\+I\+R\+\_\+\+Sensor\+\_\+\+Master.\+cpp@{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/\+P\+I\+R\+\_\+\+Sensor\+\_\+\+Master.\+cpp}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvalues}{values}}
+\begin{DoxyCompactList}\small\item\em ID and value which are to be used for the J\+S\+ON object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_p_i_r___sensor___master_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{_p_i_r___sensor___master_8cpp_a4fc01d736fe50cf5b977f755b675f11d}} 
+void \mbox{\hyperlink{_p_i_r___sensor___master_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Initial setup when the system is booted, set up the serial, board rate, and pins. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_i_r___sensor___master_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{_p_i_r___sensor___master_8cpp_adf9e5e8e4c533f3f34b4b5b8a5d05f79}\label{_p_i_r___sensor___master_8cpp_adf9e5e8e4c533f3f34b4b5b8a5d05f79}} 
+int \mbox{\hyperlink{_p_i_r___sensor___master_8cpp_adf9e5e8e4c533f3f34b4b5b8a5d05f79}{calibration\+Time}} = 30
+\begin{DoxyCompactList}\small\item\em The time taken to adjust to surroudnings. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_p_i_r___sensor___master_8cpp_a13809f03dc9aa4679358d4cd5bc17bb7}\label{_p_i_r___sensor___master_8cpp_a13809f03dc9aa4679358d4cd5bc17bb7}} 
+long unsigned int \mbox{\hyperlink{_p_i_r___sensor___master_8cpp_a13809f03dc9aa4679358d4cd5bc17bb7}{low\+In}}
+\begin{DoxyCompactList}\small\item\em how long it takes to change from low to high \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_p_i_r___sensor___master_8cpp_a5d695cccfa37ff3027fb3a68b0b659be}\label{_p_i_r___sensor___master_8cpp_a5d695cccfa37ff3027fb3a68b0b659be}} 
+long unsigned int \mbox{\hyperlink{_p_i_r___sensor___master_8cpp_a5d695cccfa37ff3027fb3a68b0b659be}{pause}} = 5000
+\begin{DoxyCompactList}\small\item\em time \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_p_i_r___sensor___master_8cpp_a8269c4830ed15273e7ef8fab7227f356}\label{_p_i_r___sensor___master_8cpp_a8269c4830ed15273e7ef8fab7227f356}} 
+boolean \mbox{\hyperlink{_p_i_r___sensor___master_8cpp_a8269c4830ed15273e7ef8fab7227f356}{lock\+Low}} = true
+\begin{DoxyCompactList}\small\item\em stay on low \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_p_i_r___sensor___master_8cpp_ac7343c1e231f230fbb2b53584153da60}\label{_p_i_r___sensor___master_8cpp_ac7343c1e231f230fbb2b53584153da60}} 
+boolean \mbox{\hyperlink{_p_i_r___sensor___master_8cpp_ac7343c1e231f230fbb2b53584153da60}{take\+Low\+Time}}
+\begin{DoxyCompactList}\small\item\em use low time \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_p_i_r___sensor___master_8cpp_a2ceac5a04da19e40ba3a1140e2796e72}\label{_p_i_r___sensor___master_8cpp_a2ceac5a04da19e40ba3a1140e2796e72}} 
+int \mbox{\hyperlink{_p_i_r___sensor___master_8cpp_a2ceac5a04da19e40ba3a1140e2796e72}{pir\+Pin}} = 5
+\begin{DoxyCompactList}\small\item\em pin on the arduino which the P\+IR sensor is connected to for output \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{_p_i_r___sensor___master_8cpp_afdd77f1aa3023f9ba5f49bb1f6c68b51}\label{_p_i_r___sensor___master_8cpp_afdd77f1aa3023f9ba5f49bb1f6c68b51}} 
+int \mbox{\hyperlink{_p_i_r___sensor___master_8cpp_afdd77f1aa3023f9ba5f49bb1f6c68b51}{led\+Pin}} = 13
+\begin{DoxyCompactList}\small\item\em the pin on the arduino the L\+ED is connected to \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the code which is uploaded to the Arduino connected to the motion sensor.
+
+\begin{DoxyAuthor}{Author}
+Adam Beresford, Rupert Bennet, Mark Austin, James Kirk
+\end{DoxyAuthor}
+B\+SD license, all text here must be included in any redistribution. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_p_i_r___sensor___master_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{_p_i_r___sensor___master_8cpp_afe461d27b9c48d5921c00d521181f12f}} 
+\index{P\+I\+R\+\_\+\+Sensor\+\_\+\+Master.\+cpp@{P\+I\+R\+\_\+\+Sensor\+\_\+\+Master.\+cpp}!loop@{loop}}
+\index{loop@{loop}!P\+I\+R\+\_\+\+Sensor\+\_\+\+Master.\+cpp@{P\+I\+R\+\_\+\+Sensor\+\_\+\+Master.\+cpp}}
+\subsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+repeadly poll for changing P\+IR value. If motion detected, turn L\+ED on for debugging purposes. 

@@ -1,0 +1,95 @@
+\hypertarget{mqtt__esp8266___p_t_8cpp}{}\section{C\+:/\+Users/\+Admin/\+Documents/\+D\+OX I\+N/mqtt\+\_\+esp8266\+\_\+\+PT.cpp File Reference}
+\label{mqtt__esp8266___p_t_8cpp}\index{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp@{C\+:/\+Users/\+Admin/\+Documents/\+D\+O\+X I\+N/mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp}}
+{\ttfamily \#include $<$E\+S\+P8266\+Wi\+Fi.\+h$>$}\newline
+{\ttfamily \#include $<$Pub\+Sub\+Client.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_acb17cbdbbb4a6169c944de22cbccdf8f}\label{mqtt__esp8266___p_t_8cpp_acb17cbdbbb4a6169c944de22cbccdf8f}} 
+private Pub\+Sub\+Client \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_acb17cbdbbb4a6169c944de22cbccdf8f}{client}} (\mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_a8c5b2d15667d39fa53d5327196798160}{esp\+Client}})
+\begin{DoxyCompactList}\small\item\em Publish subscripe client for the M\+Q\+TT broker. \end{DoxyCompactList}\item 
+public void \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_a9236c678295ec87452bb8419727ca4e9}{setup\+\_\+wifi}} ()
+\item 
+public void \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_ae896943ed4ed61ea9b6ac8c6e7c106da}{callback}} (char $\ast$\mbox{\hyperlink{kinect__simple_8java_a9df764743a91e91cd6cba566200bf269}{topic}}, byte $\ast$payload, unsigned int length)
+\item 
+public void \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_a90b29633254e5fe2aa9c41ff2ce04996}{reconnect}} ()
+\item 
+public void \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_a04fc7f5a6938aedcd17bc9a280bcf069}{setup}} ()
+\item 
+public void \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_a9f39da903ce48019a12d66e8400388dd}{loop}} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_af8ee3575d781401ebccce4196ba66aa5}\label{mqtt__esp8266___p_t_8cpp_af8ee3575d781401ebccce4196ba66aa5}} 
+private const char $\ast$ \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_af8ee3575d781401ebccce4196ba66aa5}{ssid}} = \char`\"{}$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\char`\"{}
+\begin{DoxyCompactList}\small\item\em ID for router. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_acff5efd92369d73a9658d6ce82e37ce1}\label{mqtt__esp8266___p_t_8cpp_acff5efd92369d73a9658d6ce82e37ce1}} 
+private const char $\ast$ \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_acff5efd92369d73a9658d6ce82e37ce1}{password}} = \char`\"{}$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$$\ast$\char`\"{}
+\begin{DoxyCompactList}\small\item\em wifi pass \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_a42bfb7378f6d2264179a3854c56ee942}\label{mqtt__esp8266___p_t_8cpp_a42bfb7378f6d2264179a3854c56ee942}} 
+private const char $\ast$ \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_a42bfb7378f6d2264179a3854c56ee942}{mqtt\+\_\+server}} = \char`\"{}test.\+mosquitto.\+org\char`\"{}
+\begin{DoxyCompactList}\small\item\em M\+Q\+TT broker. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_a11df40b96e3cf22710d6689ff048d1f9}\label{mqtt__esp8266___p_t_8cpp_a11df40b96e3cf22710d6689ff048d1f9}} 
+private int \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_a11df40b96e3cf22710d6689ff048d1f9}{calibration\+Time}} = 30
+\begin{DoxyCompactList}\small\item\em time to calibrate to the M\+Q\+TT broker \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_ab04185bb76e86282e6213d0c8663d083}\label{mqtt__esp8266___p_t_8cpp_ab04185bb76e86282e6213d0c8663d083}} 
+private int \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_ab04185bb76e86282e6213d0c8663d083}{pir\+Pin}} = 5
+\begin{DoxyCompactList}\small\item\em pin the P\+IR sensor is connected to on the Node\+M\+CU on pin 1 but due to the mapping of the module this is coded as pin 5 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_a297dab59973972a4580994fa57d6b57c}\label{mqtt__esp8266___p_t_8cpp_a297dab59973972a4580994fa57d6b57c}} 
+private int \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_a297dab59973972a4580994fa57d6b57c}{led\+Pin}} = 16
+\begin{DoxyCompactList}\small\item\em pin the L\+ED is connected to on the Node\+M\+CU on pin 0 but due to the mapping of the module this is coded as pin 16 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_a8c5b2d15667d39fa53d5327196798160}\label{mqtt__esp8266___p_t_8cpp_a8c5b2d15667d39fa53d5327196798160}} 
+private Wi\+Fi\+Client \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_a8c5b2d15667d39fa53d5327196798160}{esp\+Client}}
+\begin{DoxyCompactList}\small\item\em Wifi Client. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_a0b063fc98d414f3fb67cb16eaf00d590}\label{mqtt__esp8266___p_t_8cpp_a0b063fc98d414f3fb67cb16eaf00d590}} 
+private long \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_a0b063fc98d414f3fb67cb16eaf00d590}{last\+Msg}} = 0
+\begin{DoxyCompactList}\small\item\em last message ID \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_a58c347b4aa10f6285ecf8577cb2a36aa}\label{mqtt__esp8266___p_t_8cpp_a58c347b4aa10f6285ecf8577cb2a36aa}} 
+private char \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_a58c347b4aa10f6285ecf8577cb2a36aa}{msg}} \mbox{[}50\mbox{]}
+\begin{DoxyCompactList}\small\item\em store the message \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_a09c3edbf5cb50453dfc1f8494c439b55}\label{mqtt__esp8266___p_t_8cpp_a09c3edbf5cb50453dfc1f8494c439b55}} 
+private int \mbox{\hyperlink{mqtt__esp8266___p_t_8cpp_a09c3edbf5cb50453dfc1f8494c439b55}{value}} = 0
+\begin{DoxyCompactList}\small\item\em value \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the code which is uploaded to the Node\+M\+CU board which is controling the P\+IR sensor.
+
+\begin{DoxyAuthor}{Author}
+Adam Beresford, Rupert Bennet, Mark Austin, James Kirk
+\end{DoxyAuthor}
+B\+SD license, all text here must be included in any redistribution. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_ae896943ed4ed61ea9b6ac8c6e7c106da}\label{mqtt__esp8266___p_t_8cpp_ae896943ed4ed61ea9b6ac8c6e7c106da}} 
+\index{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp@{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp}!callback@{callback}}
+\index{callback@{callback}!mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp@{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp}}
+\subsubsection{\texorpdfstring{callback()}{callback()}}
+{\footnotesize\ttfamily public void callback (\begin{DoxyParamCaption}\item[{char $\ast$}]{topic,  }\item[{byte $\ast$}]{payload,  }\item[{unsigned int}]{length }\end{DoxyParamCaption})}
+
+wait for a message to be published to the topic. If a message is recieved turn on the L\+ED, otherwise turn if off. Output the recievedd message. \mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_a9f39da903ce48019a12d66e8400388dd}\label{mqtt__esp8266___p_t_8cpp_a9f39da903ce48019a12d66e8400388dd}} 
+\index{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp@{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp}!loop@{loop}}
+\index{loop@{loop}!mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp@{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp}}
+\subsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily public void loop (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Connect to M\+Q\+TT broker and poll for motion detected from P\+IR sensor if motion has been detected, publish this to the topic so processing can be done on the pi. \mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_a90b29633254e5fe2aa9c41ff2ce04996}\label{mqtt__esp8266___p_t_8cpp_a90b29633254e5fe2aa9c41ff2ce04996}} 
+\index{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp@{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp}!reconnect@{reconnect}}
+\index{reconnect@{reconnect}!mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp@{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp}}
+\subsubsection{\texorpdfstring{reconnect()}{reconnect()}}
+{\footnotesize\ttfamily public void reconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Connect to the M\+Q\+TT topic PT. If connection is successful, publish announcment so Pi knows connected to P\+IR sensor. \mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_a04fc7f5a6938aedcd17bc9a280bcf069}\label{mqtt__esp8266___p_t_8cpp_a04fc7f5a6938aedcd17bc9a280bcf069}} 
+\index{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp@{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp}!setup@{setup}}
+\index{setup@{setup}!mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp@{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily public void setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initial setup of the board, setup the output pins. \mbox{\Hypertarget{mqtt__esp8266___p_t_8cpp_a9236c678295ec87452bb8419727ca4e9}\label{mqtt__esp8266___p_t_8cpp_a9236c678295ec87452bb8419727ca4e9}} 
+\index{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp@{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp}!setup\+\_\+wifi@{setup\+\_\+wifi}}
+\index{setup\+\_\+wifi@{setup\+\_\+wifi}!mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp@{mqtt\+\_\+esp8266\+\_\+\+P\+T.\+cpp}}
+\subsubsection{\texorpdfstring{setup\+\_\+wifi()}{setup\_wifi()}}
+{\footnotesize\ttfamily public void setup\+\_\+wifi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Setup the communication with the router, connect via username and pass debug by printing out connecting status 

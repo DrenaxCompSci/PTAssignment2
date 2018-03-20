@@ -1,0 +1,48 @@
+\hypertarget{namespaceread_json}{}\section{read\+Json Namespace Reference}
+\label{namespaceread_json}\index{read\+Json@{read\+Json}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceread_json_a4278733b1dc691e64ccfe3dd769f8952}\label{namespaceread_json_a4278733b1dc691e64ccfe3dd769f8952}} 
+def {\bfseries json\+Check} (some\+Json)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceread_json_a594219c9f593b7b3258a4aee280fb15b}\label{namespaceread_json_a594219c9f593b7b3258a4aee280fb15b}} 
+{\bfseries ser} = serial.\+Serial(\textquotesingle{}/dev/tty\+U\+S\+B0\textquotesingle{}, 9600)
+\item 
+\mbox{\Hypertarget{namespaceread_json_a9f1b4476eb22ee8d3cf0fbe3a8be4708}\label{namespaceread_json_a9f1b4476eb22ee8d3cf0fbe3a8be4708}} 
+string {\bfseries account\+\_\+sid} = \char`\"{}A\+C3ae40e42edc935551d4b2993f9dc44e4\char`\"{}
+\item 
+\mbox{\Hypertarget{namespaceread_json_af36117cdb1b6ef934315fab1c5db6e42}\label{namespaceread_json_af36117cdb1b6ef934315fab1c5db6e42}} 
+string {\bfseries auth\+\_\+token} = \char`\"{}287a9d36b8b1f460751aed4111640218\char`\"{}
+\item 
+\mbox{\Hypertarget{namespaceread_json_abb8f5e6e9f12e22ef89a796fe494c4f5}\label{namespaceread_json_abb8f5e6e9f12e22ef89a796fe494c4f5}} 
+{\bfseries client} = Client(account\+\_\+sid, auth\+\_\+token)
+\item 
+\mbox{\Hypertarget{namespaceread_json_ab5d207a9f7d14f8001b445b21d30c3ae}\label{namespaceread_json_ab5d207a9f7d14f8001b445b21d30c3ae}} 
+{\bfseries movement\+Data} = ser.\+readline()
+\item 
+\mbox{\Hypertarget{namespaceread_json_a4b426e3f17d88e444af26fd1acb88606}\label{namespaceread_json_a4b426e3f17d88e444af26fd1acb88606}} 
+{\bfseries json\+Data} = json.\+loads(movement\+Data)
+\item 
+\mbox{\Hypertarget{namespaceread_json_a0d05b798c6667129dd9f20321ac02201}\label{namespaceread_json_a0d05b798c6667129dd9f20321ac02201}} 
+{\bfseries parsed\+\_\+json} = json.\+loads(\textquotesingle{}\{\char`\"{}id\char`\"{}\+: 5, \char`\"{}temperature\char`\"{}\+: 0\}\textquotesingle{})
+\item 
+\mbox{\Hypertarget{namespaceread_json_ad5965100249e3573f380d725022d2c26}\label{namespaceread_json_ad5965100249e3573f380d725022d2c26}} 
+string {\bfseries temperature\+Status} = \char`\"{}0\char`\"{}
+\item 
+\mbox{\Hypertarget{namespaceread_json_af58e519e44a9097e6acf5244711af8d2}\label{namespaceread_json_af58e519e44a9097e6acf5244711af8d2}} 
+string {\bfseries ldr\+Status} = \char`\"{}1\char`\"{}
+\item 
+\mbox{\Hypertarget{namespaceread_json_aea9ea4d040020fdf2e394d9bf6ca717c}\label{namespaceread_json_aea9ea4d040020fdf2e394d9bf6ca717c}} 
+{\bfseries json\+String} = json.\+loads(\textquotesingle{}\{\char`\"{}id\char`\"{}\+: 5, \char`\"{}radiator\char`\"{}\+: \textquotesingle{} + temperature\+Status + \textquotesingle{}, \char`\"{}motor\char`\"{}\+: \textquotesingle{} + ldr\+Status + \textquotesingle{}\}\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}This if the script which reads the JSON object and does all the
+processing for what to do in respone to the data recieved.
+\end{DoxyVerb}
+ 
