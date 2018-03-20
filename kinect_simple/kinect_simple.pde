@@ -2,24 +2,29 @@
 //MQTT example code used and modified: https://github.com/256dpi/processing-mqtt
 
 //This is the code running on the Raspberry Pi 3 to obtain a live stream and take photos either manually, or using MQTT.
+
 import org.openkinect.freenect.*;
 import org.openkinect.processing.*;
 import static javax.swing.JOptionPane.*;
 import java.util.Calendar;
 import mqtt.*;
 
+//Variables used to Kinect
 Kinect kinect; //Kinect object
 float tilt; //Tilt variable to move kinect up and down 
 boolean nightVision = false;
 
+//Variables used for obtaining the current time from the system
 Calendar rightNow = Calendar.getInstance();
 int hour = rightNow.get(Calendar.HOUR_OF_DAY);
 int lastHour = 25;
 String message =  "Kinect camera starting...";
 
+//Variables used for MQTT communication
 MQTTClient client;
-String topic = "testTopic"; //Same as Pi Camera topic
+String topic = "PT"; //Same as Pi Camera topic
 
+//Function to setup MQTT communications and kinect
 void setup() {
   client = new MQTTClient(this);
   client.connect("mqtt://192.168.10.124", "Kinect"); //Connect to broker
@@ -45,26 +50,30 @@ void draw() {
   }
 }
 
+//Function used to set the default camera used depending on the time of day 
 void cameraTime(){
   System.out.println("setting camera lense...");
   if((hour >= 9) && (hour < 19)){
     kinect.enableIR(false); //Disable infra red
+    nightVision = false; 
     System.out.println("Day time detected. Disabling IR...");
     message = "Day time detected. Disabling IR...";
   }else if(hour >= 19){
     kinect.enableIR(true); //Enable infra red
+    nightVision = true; 
     System.out.println("Night time detected. Enabling night vision...");
     message = "Night time detected. Enabling IR...";
   }else if(hour < 9){
     kinect.enableIR(true); //Enable infra red
+    nightVision = true; 
     System.out.println("Night time detected. Enabling night vision...");
     message = "Night time detected. Enabling IR...";
   }
    lastHour = hour;
 }
 
+//Detected what keys are pressed to initiate actions on the Kinect
 void keyPressed() {
- 
     if (keyCode == UP) { //If up key is pressed -- Keycode detects up, down left, right or shift
       tilt+=10;
       System.out.println("Tilting Kinect up");
@@ -74,10 +83,11 @@ void keyPressed() {
       message = "Tilting Kinect down...";
       System.out.println("Tilting Kinect down...");
     } else if (key == 'c'){
-      saveFrame();
+      saveFrame("security_" + rightNow.getTime().toString() + ".jpg");
        showMessageDialog(null, "Success! Image captured.", 
       "Kinect Camera", ERROR_MESSAGE);
        message = "Image captured and saved to kinect directory.";
+       System.out.println("Image captured and saved to kinect directory.");
     } else  if(key == 'i'){
       nightVision = !nightVision;
       kinect.enableIR(nightVision);
@@ -86,17 +96,16 @@ void keyPressed() {
       System.out.println("Toggling Night Vision...");
       }else{
         message = "Switching night vision on. Normal lense disabled...";
-      }
-     
+      } 
     }
     tilt = constrain(tilt, 0, 30); //Limit how far the kinect can be tilted
     kinect.setTilt(tilt); //Set the new tilt after a key press
   }
   
-  
+  //Function used when a message is received on topic via Paho MQTT
   void messageReceived(String topic, byte[] messages) {
   println("new message from  " + topic + ": " + new String(messages)); //Print message received from broker that is published on topic
-  saveFrame(); 
+  saveFrame("security_" + rightNow.getTime().toString() + ".jpg");
   System.out.println("Automated picture taken!");
   message = "Automated picture taken!";
   
